@@ -6,7 +6,6 @@
 # ==============================================================================
 # shellcheck disable=SC2155
 readonly PASSWORD="$(cat /data/secret)"
-cp /data/secret /addon_configs/secret-vlc.txt
 
 bashio::log.info "Waiting for PulseAudio socket to become available..."
 
