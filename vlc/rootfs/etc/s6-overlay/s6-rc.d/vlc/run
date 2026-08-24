@@ -6,6 +6,7 @@
 # ==============================================================================
 # shellcheck disable=SC2155
 readonly PASSWORD="$(cat /data/secret)"
+cp /data/secret /addon_configs/secret-vlc.txt
 
 bashio::log.info "Waiting for PulseAudio socket to become available..."
 
@@ -15,6 +16,7 @@ do
 done
 
 bashio::log.info "PulseAudio socket available, starting VLC"
+bashio::log.info "PW: ${PASSWORD}"
 
 # Send out discovery information to Home Assistant
 /etc/s6-overlay/scripts/vlc-discovery &
@@ -23,4 +25,4 @@ bashio::log.info "PulseAudio socket available, starting VLC"
 export HOME=/home/vlc
 
 # Run daemon as vlc user
-exec s6-setuidgid vlc cvlc -I http --no-dbus --extraintf telnet --http-host 127.0.0.1 --http-password "INGRESS" --telnet-password "${PASSWORD}" --aout=pulse
+exec s6-setuidgid vlc cvlc -I http --no-dbus --extraintf telnet --http-host 127.0.0.1 --http-password "INGRESS" --telnet-port=4213 --telnet-password "${PASSWORD}" --aout=pulse

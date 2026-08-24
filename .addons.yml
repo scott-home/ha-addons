@@ -1,0 +1,6 @@
+channel: stable
+addons:
+  vlc:
+    repository: HomeAssistant-Fork-Addons/vlc
+    target: vlc
+    image: https://github.com/scott-home/homeassistant-addons.git-{arch}
