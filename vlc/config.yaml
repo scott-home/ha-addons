@@ -1,7 +1,7 @@
 ---
-version: 1.1.0
-slug: vlc-fork3
-name: VLC-fork3
+version: 1.1.1
+slug: vlc-fork
+name: VLC-fork
 description: Turn your device into a Media Player with VLC
 url: https://github.com/scott-home/ha-addons/tree/master/vlc
 arch:
@@ -11,7 +11,7 @@ audio: true
 discovery:
   - vlc_telnet
 homeassistant: 2021.3.0.dev20210216
-image: homeassistant/{arch}-addon-vlc
+#image: homeassistant/{arch}-addon-vlc
 ingress: true
 init: false
 map:
