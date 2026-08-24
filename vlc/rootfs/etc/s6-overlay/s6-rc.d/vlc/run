@@ -15,7 +15,7 @@ do
     sleep 1
 done
 
-bashio::log.info "PulseAudio socket available, starting VLC"
+bashio::log.info "PulseAudio socket available, starting VLC..."
 bashio::log.info "PW: ${PASSWORD}"
 
 # Send out discovery information to Home Assistant
@@ -25,4 +25,4 @@ bashio::log.info "PW: ${PASSWORD}"
 export HOME=/home/vlc
 
 # Run daemon as vlc user
-exec s6-setuidgid vlc cvlc -I http --no-dbus --extraintf telnet --http-host 127.0.0.1 --http-password "INGRESS" --telnet-port=4213 --telnet-password "${PASSWORD}" --aout=pulse
+exec s6-setuidgid vlc cvlc -I http --no-dbus --extraintf telnet --http-host 127.0.0.1 --http-password "INGRESS" --telnet-port 4213 --telnet-password "${PASSWORD}" --aout=pulse
