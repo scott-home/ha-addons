@@ -13,8 +13,8 @@ PORT=$(bashio::config 'port')
 ha_config=$(\
     bashio::var.json \
         host "$(hostname)" \
-        port "^$(PORT)" \
-        password "$(PASSWORD)" \
+        port "^${PORT}" \
+        password "${PASSWORD}" \
 )
 
 if bashio::discovery "vlc_telnet" "${ha_config}" > /dev/null; then
