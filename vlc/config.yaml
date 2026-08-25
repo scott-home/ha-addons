@@ -17,8 +17,12 @@ init: false
 map:
   - share:ro
   - media:ro
-options: {}
+options:
+  password: ""
+  port: 4212
 panel_icon: mdi:vlc
-schema: false
+schema:
+  password: password
+  port: int
 stage: stable
 startup: services
