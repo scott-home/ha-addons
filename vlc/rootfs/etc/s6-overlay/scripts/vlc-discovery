@@ -6,12 +6,15 @@
 # ==============================================================================
 declare ha_config
 
+PASSWORD=$(bashio::config 'password')
+PORT=$(bashio::config 'port')
+
 # Prepare discovery payload
 ha_config=$(\
     bashio::var.json \
         host "$(hostname)" \
-        port "^4213" \
-        password "$(cat /data/secret)" \
+        port "^$(PORT)" \
+        password "$(PASSWORD)" \
 )
 
 if bashio::discovery "vlc_telnet" "${ha_config}" > /dev/null; then
