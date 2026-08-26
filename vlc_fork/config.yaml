@@ -1,5 +1,5 @@
 ---
-version: 1.1.9
+version: 1.1.10
 slug: vlc-fork
 name: VLC-fork
 description: Turn your device into a Media Player with VLC
@@ -26,3 +26,5 @@ schema:
   port: int
 stage: stable
 startup: services
+ports:
+  4213/tcp: 4213
