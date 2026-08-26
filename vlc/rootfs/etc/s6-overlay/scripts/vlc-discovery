@@ -17,7 +17,7 @@ ha_config=$(\
         password "${PASSWORD}" \
 )
 
-bashio::log.info "host: $(hostname)"
+bashio::log.info "host: ${hostname}"
 
 if bashio::discovery "vlc_telnet" "${ha_config}" > /dev/null; then
     bashio::log.info "Successfully send discovery information to Home Assistant."
